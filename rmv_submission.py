@@ -27,6 +27,14 @@ class RMVConfig:
         # Personal information
         self.personal = config['personal']
 
+        salutation=self.personal.get("salutation")
+        valid_salutations=('Herr', 'Frau')
+
+        if salutation not in valid_salutations:
+            click.echo("Salutation {} is not valid. It must be one of: {}".format(salutation, ",".join(valid_salutations)))
+            sys.exit(-1)
+
+
         # Gerneral settings
         self.general = config['general']
 
@@ -151,6 +159,12 @@ class RMVRefund:
         click.echo("Step 5: Address")
         
         # This depends on who is claiming
+        salutations={
+            'Herr': 'MR',
+            'Frau': 'MS',
+        }
+        salutation=salutations[data["salutation"]]
+        self.click('select#formOfAddress option[value="{}"]'.format(salutation))
         self.input('input#firstName', data["first_name"])
         self.input('input#lastName', data["last_name"])
         self.input('input#email', data["email"])
