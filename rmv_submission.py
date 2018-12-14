@@ -178,6 +178,9 @@ class RMVRefund:
 
         if not self.config.general.get("guidelines_agreed"):
             accepted = click.confirm('Do you accept the guidelines?')
+        else:
+            # Guidelines agreed per config file
+            accepted = True
         
         if accepted:
             self.click('input#guidelinesAgreed')
