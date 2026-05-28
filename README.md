@@ -1,5 +1,13 @@
 # RMV 10 Minuten Guarantee Submission
 
+> **⚠️ Archived / no longer functional.**
+> RMV discontinued the 10-minute guarantee online refund process, so the form
+> this script automated no longer exists. The repository is kept public for
+> reference only — it is not maintained, dependencies are intentionally frozen
+> at their last-known-working versions (see `Pipfile`), and the code will not
+> run against the live RMV site. No fixes, dependency bumps, or security
+> updates will be applied. Issues and PRs are disabled.
+
 A script to automate the submission of RMV 10 minute guarantee requests
 
 This is a little script I wrote to help for the submission of requests.
@@ -9,7 +17,11 @@ with the same values each time.
 
 ## Installation
 
-Install the requirements:
+> The original `Pipfile.lock` has been removed so that GitHub no longer raises
+> security alerts on long-frozen 2018-era pinned versions. The `Pipfile`
+> remains as a record of the original dependency set (Python 3.7,
+> `selenium 3.x`, `click >6.7`, etc.); a fresh `pipenv install` will resolve
+> current versions which have not been tested with this code.
 
 ```shell
 pipenv install
@@ -79,8 +91,6 @@ python ./rmv_submission.py -r work -d 01.12.2018 -t 08:00 -a 09:20
 
 A log of submissions is written to `rmv.log` in the current directory.
 
-## Outstanding items
+## Status
 
-* Make browser selection configurable
-* Test and document further ticket options
-* Tests
+No further work planned — see the notice at the top of this README.
